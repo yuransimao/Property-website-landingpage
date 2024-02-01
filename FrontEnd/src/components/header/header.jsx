@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <React.Fragment>
-        <div className='w-full fixed -z-50'>
+        <div className='w-full fixed z-50'>
         <div className='flex lg:justify-around  justify-between items-center lg:px-0  px-7 py-9'>
             <div><h2>Dremy</h2></div>
 

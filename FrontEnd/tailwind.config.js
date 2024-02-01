@@ -13,7 +13,9 @@ export default {
         'OpenSans': ['Open Sans', 'sans-serif']
       },
     },
+    backgroundImage: {
+      'house-img': "url('./assets/house.jpg')"
+    }
   },
   plugins: [],
 }
-
