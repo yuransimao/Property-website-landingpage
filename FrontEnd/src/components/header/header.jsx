@@ -20,12 +20,12 @@ function Header() {
     <React.Fragment>
         <div className='w-full fixed z-50'>
         <div className='flex lg:justify-around  justify-between items-center lg:px-0  px-7 py-9'>
-            <div><h2>Dremy</h2></div>
+            <div><h2 className='text-white font-bold'>Dremy</h2></div>
 
 
             <div className='hidden lg:flex'>
             <nav>
-            <ul className='flex justify-center gap-x-10'>
+            <ul className='flex justify-center gap-x-10 text-white font-medium'>
                 <li><NavLink><h4>Home</h4></NavLink></li>
                 <li><NavLink><h4>Listings</h4></NavLink></li>
                 <li><NavLink><h4>Features</h4></NavLink></li>
@@ -35,7 +35,7 @@ function Header() {
             </div>
 
             <div className='hidden lg:flex gap-x-10'> 
-                <button>Add Property</button>
+                <button className='text-white'><h2>Add Property</h2></button>
                 <button className='bg-blue-500 py-2 px-5 rounded text-white font-medium transition-all hover:opacity-[0.8]'>Sign in</button>
             </div>
         
