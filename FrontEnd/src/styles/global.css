@@ -12,3 +12,10 @@
     font-weight: 400;
     src: url("./Font/OpenSans-VariableFont_wdth_wght.ttf");
   }
+
+  div .section-image{
+    background: url('../assets/house.jpg');
+    background-position: 100%;
+    background-size: cover;
+    
+  }
