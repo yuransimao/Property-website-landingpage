@@ -3,6 +3,8 @@ import { IoIosMenu } from "react-icons/io";
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { ResponsiveMenu } from './responsive';
+import { Button } from '../button/button';
+
 function Header() {
 
     const [VisivelMenu, setVisivelMenu] = useState(false);
@@ -36,7 +38,7 @@ function Header() {
 
             <div className='hidden lg:flex gap-x-10'> 
                 <button className='text-white'><h2>Add Property</h2></button>
-                <button className='bg-blue-500 py-2 px-5 rounded text-white font-medium transition-all hover:opacity-[0.8]'>Sign in</button>
+                <Button text = "Sign in"/>
             </div>
         
             <div className='flex lg:hidden'>
