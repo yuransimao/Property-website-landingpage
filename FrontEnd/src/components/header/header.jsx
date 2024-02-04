@@ -40,7 +40,7 @@ function Header() {
             </div>
         
             <div className='flex lg:hidden'>
-            <button onClick={() => setVisivelMenu(true)}><IoIosMenu size={20}/></button>
+            <button onClick={() => setVisivelMenu(true)} className='text-white'><IoIosMenu size={20}/></button>
         </div>
 
         {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu}/>}
