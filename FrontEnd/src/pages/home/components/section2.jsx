@@ -2,10 +2,11 @@ import React from 'react'
 import { MdAddHomeWork , MdOutlineHomeWork} from "react-icons/md";
 import { HiHomeModern } from "react-icons/hi2";
 import { LiaUsersSolid } from "react-icons/lia";
+
 const Section2 = () => {
   return (
     <React.Fragment>
-      <div className='p-10 bg-green-400/5'>
+      <div className='p-12 bg-green-400/5'>
         <h1 className='text-center font-bold lg:text-4xl md:text-3xl text-2xl text-blue-950 py-2'>Achivement</h1>
         <p className='text-center font-normal lg:text-base md:text-base text-sm '>Mentioned beggan rural, oral vernacular that developed frombrial and  successful.</p>
 

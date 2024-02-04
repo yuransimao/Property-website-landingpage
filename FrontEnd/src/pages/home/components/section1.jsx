@@ -1,5 +1,6 @@
 import React from 'react'
 import { CiLocationOn } from "react-icons/ci";
+import {Button} from "../../../components"
 function Section1 ()  {
    
   return (
@@ -34,7 +35,7 @@ function Section1 ()  {
                     <form action="" className='flex items-center lg:gap-7 md:gap-5 gap-2'>
                         <span className='text-zinc-400'><CiLocationOn size={20}/></span>
                         <input type="search" name="" id="" placeholder='Search for a propety' className='transition-all py-1 pr-0 lg:pr-4 md:pr-4 focus:border-b-2 focus:border-blue-600 '/>
-                        <button className='bg-blue-500 py-2 px-1 lg:px-4 md:px-4 sm:px-2 rounded text-white font-medium transition-all hover:opacity-[0.8]'>Search</button>
+                      <Button text = "Search"/>
             
                     </form>
                    </div>
