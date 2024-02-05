@@ -16,5 +16,25 @@
     background: url('../assets/house.jpg');
     background-position: 100%;
     background-size: cover;
+
     
+  }
+
+  div .Paradise{
+    background: url('../assets/Paradise.jpg');
+    background-position: 100%;
+    background-size: cover;
+    
+  }
+
+  div .ClusterNirwava{
+    background: url('../assets/ClusterNirwava.jpg');
+    background-position: 100%;
+    background-size: cover;
+  }
+
+  div .SrikandiHousing{
+    background: url('../assets/SrikandiHousing.jpg');
+    background-position: 100%;
+    background-size: cover;
   }
