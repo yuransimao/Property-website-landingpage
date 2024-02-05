@@ -9,7 +9,7 @@ function Card  ({Image, category, price, title, section=[], location})  {
   return (
     <React.Fragment>
         
-            <div className=' w-96 bg-white rounded-lg p-4 shadow-lg'>
+            <div className='w-full lg:w-96 md:w-96 bg-white rounded-lg p-4 shadow-lg'>
 
                 <div className='w-full rounded-lg overflow-hidden'>
                     <img src={Image} alt="ClusterNirwava" />
@@ -25,10 +25,10 @@ function Card  ({Image, category, price, title, section=[], location})  {
                     <div className='flex gap-5'>
                        {section?.map((item, index) => (
                          <section className='flex items-center gap-3' key={index}>
-                         <span className='rounded-full bg-zinc-200 p-2 text-blue-950'>
+                         <span className='rounded-full bg-zinc-200 p-[0.3rem] lg:p-2 md:p-2 sm:p-2  text-blue-950'>
                             {item.icon}
                          </span>
-                         <h5 className='text-black text-sm font-medium'>{item.title}</h5>
+                         <h5 className='text-black text-xs lg:text-sm md:text-sm sm:text-sm  font-medium'>{item.title}</h5>
                      </section>
                        ))}
                     </div>
