@@ -1,6 +1,26 @@
 import React from 'react'
+import Image from "../../../assets/ClusterNirwava.jpg"
 
+import { LiaBedSolid, LiaBathSolid } from "react-icons/lia";
+import { Card} from "../../../components"
  function Section4() {
+
+    const Data =[{
+        Image,
+        category: "Rent",
+        price:1.300,
+        title : "Mitchel Park Plaza Apartments",
+        location:"Downtown Dubai, Forte 2",
+        section: [{
+            title: "2 Beds",
+            icon: <LiaBedSolid/>
+            },
+            {
+                title: "2 Baths",
+                icon: <LiaBathSolid/>
+                }
+        ]
+    }]
   return (
     <React.Fragment>
         <div className='bg-green-400/5 flex flex-col items-center justify-center p-8 gap-8'>
@@ -10,7 +30,15 @@ import React from 'react'
             They will make list of potential employees to be <br/> interviewed based
         </p>
             </div>
+
+            <div className='flex gap-6'>
+            {Data.map((item, index) => (
+                <Card key={index} {...item}/>
+            ))}
+            </div>
         </div>
+
+       
     </React.Fragment>
   )
 }
