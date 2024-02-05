@@ -21,11 +21,11 @@ function Section3() {
                     </div>
 
                 </div>
-                <div className='rounded-full bg-zinc-200 p-3 text-blue-950'>
+                <button className='rounded-full bg-zinc-200 p-3 text-blue-950 transition-all hover:bg-fuchsia-300'>
                     <span>
                         <FaHeart />
                     </span>
-                </div>
+                </button>
             </div>
 
 
@@ -43,11 +43,11 @@ function Section3() {
                     </div>
 
                 </div>
-                <div className='rounded-full bg-zinc-200 p-3 text-blue-950'>
+                <button className='rounded-full bg-zinc-200 p-3 text-blue-950 transition-all hover:bg-fuchsia-300'>
                     <span>
                         <FaHeart />
                     </span>
-                </div>
+                </button>
             </div>
 
             </div>
@@ -62,11 +62,11 @@ function Section3() {
                     </div>
 
                 </div>
-                <div className='rounded-full bg-zinc-200 p-3 text-blue-950'>
+                <button className='rounded-full bg-zinc-200 p-3 text-blue-950 transition-all hover:bg-fuchsia-300'>
                     <span>
                         <FaHeart />
                     </span>
-                </div>
+                </button>
             </div>
 
             </div>
