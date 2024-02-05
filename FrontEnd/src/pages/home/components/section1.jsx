@@ -5,7 +5,7 @@ function Section1 ()  {
    
   return (
     <React.Fragment>
-        <div className={`w-full h-[100vh] flex  flex-col items-center pt-9 justify-center   section-image gap-9`}>
+        <div className={`w-full h-dvh flex  flex-col items-center pt-9 justify-center   section-image gap-9`}>
 
             
             <div className='mb-2' >
