@@ -48,17 +48,17 @@ function Card  ({Image, category, price, title, section=[], location})  {
   )
 }
 
-Card.propTypes ={
-    Image :P.string.isRequired,
-    price : P.number.isRequired,
-    category:P.string.isRequired,
-    section: P.arrayOf({
-    title: P.string.isRequired,
-    }),
-    title :P.string.isRequired,
-    location: P.string.isRequired,
-
-}
-
+Card.propTypes = {
+  Image: P.string.isRequired,
+  price: P.number.isRequired,
+  category: P.string.isRequired,
+  section: P.arrayOf(
+      P.shape({
+          title: P.string.isRequired,
+      })
+  ).isRequired,
+  title: P.string.isRequired,
+  location: P.string.isRequired,
+};
 export {Card}
 

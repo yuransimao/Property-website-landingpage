@@ -8,11 +8,16 @@ import { Button } from '../button/button';
 function Header() {
 
     const [VisivelMenu, setVisivelMenu] = useState(false);
+    const [BackgroundActive, setBackgroundActive] = useState(false)
 
     useEffect(() => {
         window.addEventListener("resize", function(){
             this.innerWidth > 1022 && setVisivelMenu(false);
             
+        })
+
+        window.addEventListener("scroll", function(){
+            this.scrollY > 652 ? setBackgroundActive(true) : setBackgroundActive(false)
         })
     },[])
 
@@ -20,14 +25,15 @@ function Header() {
 
   return (
     <React.Fragment>
-        <div className='w-full fixed z-50'>
-        <div className='flex lg:justify-around  justify-between items-center lg:px-0  px-7 py-9'>
-            <div><h2 className='text-white font-bold'>Dremy</h2></div>
+        <div className={ `w-full bg-white fixed z-50  lg:px-0  px-7 py-9 ${BackgroundActive ?'bg-white' : 'bg-transparent'}`}>
+
+        <div className='flex lg:justify-around  justify-between items-center'>
+            <div><h2 className={`font-bold ${BackgroundActive ? 'text-black' :'text-white'}`}>Dremy</h2></div>
 
 
             <div className='hidden lg:flex'>
             <nav>
-            <ul className='flex justify-center gap-x-10 text-white font-medium'>
+            <ul className={`flex justify-center gap-x-10 ${BackgroundActive ? 'text-black' :'text-white'} font-bold`}>
                 <li><NavLink><h4>Home</h4></NavLink></li>
                 <li><NavLink><h4>Listings</h4></NavLink></li>
                 <li><NavLink><h4>Features</h4></NavLink></li>
@@ -42,7 +48,7 @@ function Header() {
             </div>
         
             <div className='flex lg:hidden'>
-            <button onClick={() => setVisivelMenu(true)} className='text-white'><IoIosMenu size={20}/></button>
+            <button onClick={() => setVisivelMenu(true)} className={BackgroundActive ? 'text-black' :'text-white'}><IoIosMenu size={20}/></button>
         </div>
 
         {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu}/>}
