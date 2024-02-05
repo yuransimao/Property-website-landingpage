@@ -1,13 +1,15 @@
 import React from 'react'
-import Image from "../../../assets/ClusterNirwava.jpg"
-
+import Image from "../../../assets/sala2.jpg"
+import Sala from "../../../assets/sala.jpg"
+import Room from "../../../assets/room.jpg"
 import { LiaBedSolid, LiaBathSolid } from "react-icons/lia";
 import { SlSizeActual } from "react-icons/sl";
 import { Card} from "../../../components"
  function Section4() {
 
-    const Data =[{
-        Image,
+    const Data =[
+    {
+        Image:Sala,
         category: "Rent",
         price:1.300,
         title : "Mitchel Park Plaza Apartments",
@@ -26,7 +28,7 @@ import { Card} from "../../../components"
         ]
     },
     {
-        Image,
+        Image:Room,
         category: "Rent",
         price:1.300,
         title : "Cottonwood Creek Apartments",
