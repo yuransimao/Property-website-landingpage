@@ -25,7 +25,7 @@ function Header() {
 
   return (
     <React.Fragment>
-        <div className={`w-full fixed z-50  lg:px-0  px-7 py-4 ${BackgroundActive? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+        <div className={`w-full fixed left-0 right-0 z-50  lg:px-0  px-7 py-4 ${BackgroundActive? 'bg-white shadow-lg' : 'bg-transparent'}`}>
 
         <div className='flex lg:justify-around  justify-between items-center'>
             <div><h2 className={`font-bold ${BackgroundActive ? 'text-black' :'text-white'}`}>Dremy</h2></div>
