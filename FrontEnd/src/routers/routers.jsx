@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../pages";
-import { Header } from "../components";
+import { Header, Footer } from "../components";
 const Router = () =>{
     return(
         <BrowserRouter>
@@ -8,6 +8,7 @@ const Router = () =>{
         <Routes>
             <Route index path="/" element={<Home/>}/>
         </Routes>
+        <Footer/>
         </BrowserRouter>
     )
 }

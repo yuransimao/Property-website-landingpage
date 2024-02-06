@@ -61,12 +61,12 @@ function Section5() {
         </div>
 
         <div className='bg-zinc-900/10 p-2 rounded-md flex gap-20'>
-          <button className={` ${Plan == "Anually" && 'bg-blue-900 text-black'} text-white font-bold py-2 px-6 rounded-md`}
+          <button className={` ${Plan == "Anually" ? 'bg-blue-900  text-white' : 'bg-transparent text-black'}  font-bold py-2 px-6 rounded-md`}
           onClick={(e) => HandleFilterPlan(e)  }
           >
           <h2>Anually</h2>
           </button>
-          <button className={` ${Plan == "Monthly" && 'bg-blue-900 text-black'} text-white font-bold py-2 px-6 rounded-md`} onClick={(e) => HandleFilterPlan(e)}><h2>Monthly</h2>
+          <button className={` ${Plan == "Monthly" ? 'bg-blue-900 text-white' : 'bg-transparent text-black'}  font-bold py-2 px-6 rounded-md`} onClick={(e) => HandleFilterPlan(e)}><h2>Monthly</h2>
           </button>
         </div>
 
