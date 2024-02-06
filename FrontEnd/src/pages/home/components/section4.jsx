@@ -68,7 +68,7 @@ import { Card} from "../../../components"
     ]
   return (
     <React.Fragment>
-        <div className='bg-green-400/5 flex flex-col items-center justify-center px-4 lg:px-8  py-8 gap-8'>
+        <div className='bg-green-400/5 flex flex-col items-center justify-center px-4 lg:px-8  py-20 gap-8'>
             <div>
             <h1 className='text-center font-bold lg:text-4xl md:text-3xl text-2xl text-blue-950 py-2'>Recent Property For Recent</h1>
         <p className='text-center font-normal lg:text-base md:text-base text-sm '>
