@@ -3,6 +3,7 @@ import { PiStarFourFill } from "react-icons/pi";
 import P from "prop-types"
 function Cardplan({ title, price, description, priceType, list = [], index }) {
   const IndexPar = index % 2 !==0;
+  
   return (
     <React.Fragment>
       <div className='w-full lg:w-[21rem] md:w-96  bg-white rounded-lg  shadow-lg overflow-hidden'>
