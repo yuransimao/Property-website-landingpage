@@ -1,6 +1,35 @@
 import React from 'react'
-import { PiStarFourFill } from "react-icons/pi";
+
+import { Cardplan } from '../../../components';
+
 function Section5() {
+  const DataPlan =[
+    {
+      plan: 'Anually',
+      title:"Lite Plan",
+      price: '$120',
+      priceType:'mon',
+      description: "They will make list of potential employees to be interviewed based.",
+      list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
+    },
+    {
+      plan: 'Anually',
+      title: "Basic Plan",
+      price: '$150',
+      priceType:'mon',
+      description: "They will make list of potential employees to be interviewed based.",
+      list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
+    },
+    {
+      plan: 'Anually',
+      title: "Plus Plan",
+      price: '$220',
+      priceType:'mon',
+      description: "They will make list of potential employees to be interviewed based.",
+      list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
+    },
+  ]
+
   return (
     <React.Fragment>
       <div className=' flex bg-gradient-to-t from-green-800/10 to-white flex-col items-center justify-center px-4 lg:px-8  py-20 gap-8'>
@@ -18,31 +47,12 @@ function Section5() {
           </button>
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 py-6'>
 
-          <div className='w-full lg:w-[21rem] md:w-[21rem] bg-white rounded-lg  shadow-lg'>
-
-            <div className='flex flex-col items-center gap-6 p-6'>
-              <h3 className='text-xl font-semibold text-blue-950'>Lite Plan</h3>
-              <p className='text-center font-light lg:text-base md:text-base text-sm '>
-                They will make list of potential employees to be interviewed based.
-              </p>
-              <h2 className='text-2xl font-semibold text-blue-950'>$120/<span className='text-sm font-normal'>mon</span></h2>
-              <button className='w-full bg-zinc-800/10 transition hover:bg-slate-900/30  p-1 rounded-sm text-blue-950 font-semibold'><h4>Selct Plan</h4></button>
-            </div>
-
-            <div className='p-6'>
-              <ul>
-                <li className=' flex gap-4 items-center'>
-                <span className='text-blue-950'><PiStarFourFill /></span> 
-                <h4 className='text-blue-800 text-base'>50 Listings</h4>
-                </li>
-                
-                
-              </ul>
-            </div>
-
-          </div>
+            {DataPlan?.map((item, index) => (
+              <Cardplan key={index} {...item}/>
+            ))}
+          
 
         </div>
 
