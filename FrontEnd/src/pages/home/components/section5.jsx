@@ -7,7 +7,7 @@ function Section5() {
     {
       plan: 'Anually',
       title:"Lite Plan",
-      price: '$120',
+      price: 120,
       priceType:'mon',
       description: "They will make list of potential employees to be interviewed based.",
       list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
@@ -15,7 +15,7 @@ function Section5() {
     {
       plan: 'Anually',
       title: "Basic Plan",
-      price: '$150',
+      price: 150,
       priceType:'mon',
       description: "They will make list of potential employees to be interviewed based.",
       list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
@@ -23,7 +23,7 @@ function Section5() {
     {
       plan: 'Anually',
       title: "Plus Plan",
-      price: '$220',
+      price: 220,
       priceType:'mon',
       description: "They will make list of potential employees to be interviewed based.",
       list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
@@ -50,7 +50,7 @@ function Section5() {
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 py-6'>
 
             {DataPlan?.map((item, index) => (
-              <Cardplan key={index} {...item}/>
+              <Cardplan key={index} {...item} index={index}/>
             ))}
           
 
