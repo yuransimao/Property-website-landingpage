@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Cardplan } from '../../../components';
-
+  
 function Section5() {
+
   const DataPlan =[
     {
       plan: 'Anually',
@@ -29,6 +30,25 @@ function Section5() {
       list: ["50 Listings", "Contact with Agent", "One Year Validity", "7/24 Fully Suport"]
     },
   ]
+  const [Plan, SetPalan] = useState('Anually')
+  const [DataPlanNew, setDataPlanNew] = useState(DataPlan)
+
+  
+
+
+  const HandleFilterPlan = async (event) =>{
+    const buttonText = event.target.textContent;
+     
+    const DataNewPlan = await DataPlan.filter( item => item.plan  == buttonText);
+    SetPalan(buttonText)
+    setDataPlanNew(DataNewPlan)
+   
+  }
+
+
+  const PlanFilter = DataPlanNew.filter(item => item.plan == Plan) 
+
+  console.log(PlanFilter)
 
   return (
     <React.Fragment>
@@ -41,15 +61,18 @@ function Section5() {
         </div>
 
         <div className='bg-zinc-900/10 p-2 rounded-md flex gap-20'>
-          <button className='bg-blue-900 text-white font-bold py-2 px-6 rounded-md'><h2>Anually</h2>
+          <button className={` ${Plan == "Anually" && 'bg-blue-900 text-black'} text-white font-bold py-2 px-6 rounded-md`}
+          onClick={(e) => HandleFilterPlan(e)  }
+          >
+          <h2>Anually</h2>
           </button>
-          <button className=' text-black font-bold py-2 px-6 rounded-md'><h2>Monthly</h2>
+          <button className={` ${Plan == "Monthly" && 'bg-blue-900 text-black'} text-white font-bold py-2 px-6 rounded-md`} onClick={(e) => HandleFilterPlan(e)}><h2>Monthly</h2>
           </button>
         </div>
 
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 py-6'>
 
-            {DataPlan?.map((item, index) => (
+            {PlanFilter?.map((item, index) => (
               <Cardplan key={index} {...item} index={index}/>
             ))}
           
