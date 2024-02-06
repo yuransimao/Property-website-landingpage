@@ -5,7 +5,7 @@ function Cardplan  ({title, price, description,priceType, list=[]}){
 
     return(
     <React.Fragment>
-        <div className='w-11/12 lg:w-[21rem] md:w-96 bg-white rounded-lg  shadow-lg'>
+        <div className='w-full lg:w-[21rem] md:w-96 bg-white rounded-lg  shadow-lg'>
 
 <div className='flex flex-col items-center gap-6 p-6'>
   <h3 className='text-xl font-semibold text-blue-950'>{title}</h3>
