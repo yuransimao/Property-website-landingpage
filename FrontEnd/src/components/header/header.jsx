@@ -6,11 +6,14 @@ import { NavLink } from 'react-router-dom'
 import { Button } from '../button/button';
 
 
-function Header({ setVisivelMenu}) {
+function Header({ setVisivelMenu, setShowForm}) {
 
     
     const [BackgroundActive, setBackgroundActive] = useState(false)
-    
+    const HandleSign = () => {
+        setShowForm(true)
+        setVisivelMenu(false)
+    }
     useEffect(() => {
         window.addEventListener("resize", function(){
             this.innerWidth > 1022 && setVisivelMenu(false);
@@ -45,7 +48,7 @@ function Header({ setVisivelMenu}) {
 
             <div className='hidden lg:flex gap-x-10'> 
                 <button className='text-white'><h2>Add Property</h2></button>
-                <Button text = "Sign in"/>
+                <Button text = "Sign in" onclick={HandleSign}/>
             </div>
         
             <div className='flex lg:hidden'>

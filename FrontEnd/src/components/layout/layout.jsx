@@ -5,13 +5,14 @@ import { ResponsiveMenu } from '../header/responsive'
 function Layout() {
 
     const [VisivelMenu, setVisivelMenu] = useState(false);
+    const [showForm, setShowForm] = useState(false);
   return (
     <React.Fragment>
-        <Header VisivelMenu ={VisivelMenu} setVisivelMenu={setVisivelMenu}/>
+        <Header setShowForm ={setShowForm} setVisivelMenu={setVisivelMenu}/>
         {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu}/>}
-        <Mordalbox>
+        {showForm && <Mordalbox onclick= {setShowForm}>
         <Form/>
-        </Mordalbox>
+        </Mordalbox> }
 
     </React.Fragment>
   )
