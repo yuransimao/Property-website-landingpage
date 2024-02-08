@@ -9,7 +9,7 @@ function Layout() {
   return (
     <React.Fragment>
         <Header setShowForm ={setShowForm} setVisivelMenu={setVisivelMenu}/>
-        {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu}/>}
+        {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu} setShowForm={setShowForm}/>}
         {showForm && <Mordalbox onclick= {setShowForm}>
         <Form/>
         </Mordalbox> }
