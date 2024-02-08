@@ -1,20 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
-function Mordalbox({children}) {
+import { RxCross2 } from "react-icons/rx";
+function Mordalbox({children, onclick}) {
   return (
     <React.Fragment>
-        <div className='fixed flex items-center justify-center h-dvh w-dvw z-[60] bg-zinc-700/60 overflow-hidden'>
-            <div className='bg-white rounded-sm overflow-hidden'>
-            <div className='flex items-center  gap-1'>
-               <button className='py-4 px-20 bg-blue-500 text-white'><h3>Sign in</h3></button>
-               <button className='py-4 px-20'><h2>Register</h2></button>
-            </div>
-           <div>
-           {children}
-           </div>
-            </div>
+        <div className='fixed flex items-center justify-center h-dvh w-dvw z-[60] bg-zinc-700/100' >
+        <div className='absolute left-4 top-8 p-3 z-[60]'> 
+             <button  onClick={ () => onclick(false)} className={`pointer p-2 bg-zinc-800/60 rounded-full transition-all hover:bg-zinc-800/50 text-white `}>
+              <RxCross2 />
+              </button>
+             </div>
+            {children}
            
         </div>
     </React.Fragment>

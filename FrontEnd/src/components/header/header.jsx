@@ -1,17 +1,19 @@
 import React from 'react'
+import P from "prop-types"
 import { IoIosMenu } from "react-icons/io";
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
-import { ResponsiveMenu } from './responsive';
 import { Button } from '../button/button';
-import { Mordalbox } from '../mordalbox/mordalbox';
-import { Form } from '../form/form';
 
-function Header() {
 
-    const [VisivelMenu, setVisivelMenu] = useState(false);
+function Header({ setVisivelMenu, setShowForm}) {
+
+    
     const [BackgroundActive, setBackgroundActive] = useState(false)
-    const [MordalBoxs, setMordalBoxs] = useState(false)
+    const HandleSign = () => {
+        setShowForm(true)
+        setVisivelMenu(false)
+    }
     useEffect(() => {
         window.addEventListener("resize", function(){
             this.innerWidth > 1022 && setVisivelMenu(false);
@@ -21,7 +23,7 @@ function Header() {
         window.addEventListener("scroll", function(){
             this.scrollY > 652 ? setBackgroundActive(true) : setBackgroundActive(false)
         })
-    },[])
+    },[setVisivelMenu])
 
 
 
@@ -46,24 +48,25 @@ function Header() {
 
             <div className='hidden lg:flex gap-x-10'> 
                 <button className='text-white'><h2>Add Property</h2></button>
-                <Button text = "Sign in"/>
+                <Button text = "Sign in" onclick={HandleSign}/>
             </div>
         
             <div className='flex lg:hidden'>
             <button onClick={() => setVisivelMenu(true)} className={BackgroundActive ? 'text-black' :'text-white'}><IoIosMenu size={20}/></button>
         </div>
 
-        {VisivelMenu && <ResponsiveMenu setVisivelMenu ={setVisivelMenu}/>}
+        
         </div>
 
         
         </div>
 
-        <Mordalbox>
-          <Form/>
-        </Mordalbox>
     </React.Fragment>
   )
+}
+
+Header.propTypes ={
+    setVisivelMenu: P.func
 }
 
 export {Header}
