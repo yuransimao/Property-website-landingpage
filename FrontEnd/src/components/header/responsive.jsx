@@ -13,7 +13,7 @@ import { RxCross2 } from "react-icons/rx";
               </button>
              </div>
 
-          <div className='absolute flex flex-col justify-between bg-white right-0 w-[90%] md:w-[50%] sm:w-[70%] h-[100vh] p-10 rounded-l'>
+          <div className='absolute flex flex-col justify-between bg-white right-0 w-[90%] md:w-[50%] sm:w-[70%] h-dvh p-10 rounded-l'>
             
          
             <nav>

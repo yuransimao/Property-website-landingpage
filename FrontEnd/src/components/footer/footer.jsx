@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaFacebookF,FaInstagram,FaLinkedinIn } from "react-icons/fa";
 function Footer()  {
+    const Dates = new Date();
+    const Year = Dates.getFullYear()
+
   return (
     <React.Fragment>
         <div >
@@ -60,7 +63,7 @@ function Footer()  {
             </div>
 
             <div className='bg-blue-900 text-center p-5 font-bold text-white'>
-                <h4>Copyright &#xA9; 2024 Dremy All rights reserved</h4>
+                <h4>Copyright &#xA9; {Year} Dremy All rights reserved</h4>
             </div>
         </div>
     </React.Fragment>

@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import { ResponsiveMenu } from './responsive';
 import { Button } from '../button/button';
+import { Mordalbox } from '../mordalbox/mordalbox';
+import { Form } from '../form/form';
 
 function Header() {
 
     const [VisivelMenu, setVisivelMenu] = useState(false);
     const [BackgroundActive, setBackgroundActive] = useState(false)
-
+    const [MordalBoxs, setMordalBoxs] = useState(false)
     useEffect(() => {
         window.addEventListener("resize", function(){
             this.innerWidth > 1022 && setVisivelMenu(false);
@@ -56,6 +58,10 @@ function Header() {
 
         
         </div>
+
+        <Mordalbox>
+          <Form/>
+        </Mordalbox>
     </React.Fragment>
   )
 }
