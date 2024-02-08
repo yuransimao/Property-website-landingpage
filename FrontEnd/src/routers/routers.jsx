@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../pages";
-import { Header, Footer } from "../components";
+import { Layout, Footer } from "../components";
 const Router = () =>{
     return(
         <BrowserRouter>
-        <Header/>
+        <Layout/>
         <Routes>
             <Route index path="/" element={<Home/>}/>
         </Routes>
