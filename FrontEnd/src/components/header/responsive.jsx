@@ -43,7 +43,7 @@ import { RxCross2 } from "react-icons/rx";
 }
 
 ResponsiveMenu.propTypes ={
-  setVisivelMenu : P.func.isRequired
-
+  setVisivelMenu : P.func.isRequired,
+  setShowForm: P.func.isRequired
 }
 export {ResponsiveMenu}
