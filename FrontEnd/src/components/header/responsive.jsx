@@ -2,7 +2,13 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import P from "prop-types"
 import { RxCross2 } from "react-icons/rx";
- const ResponsiveMenu = ({setVisivelMenu}) => {
+ const ResponsiveMenu = ({setVisivelMenu,setShowForm}) => {
+
+  const HandleForm = () => {
+    setVisivelMenu(false);
+    setShowForm(true)
+
+  }
   return (
     <React.Fragment>
          <div className='bg-zinc-900/20  fixed top-0 bottom-0 w-full z-[60] left-0 right-0'>
@@ -13,7 +19,7 @@ import { RxCross2 } from "react-icons/rx";
               </button>
              </div>
 
-          <div className='absolute flex flex-col justify-between bg-white right-0 w-[90%] md:w-[50%] sm:w-[70%] h-dvh p-10 rounded-l'>
+          <div className='absolute flex flex-col justify-between bg-white right-0 w-11/12 md:w-3/6 sm:w-[70%] h-dvh p-10 rounded-l'>
             
          
             <nav>
@@ -27,7 +33,7 @@ import { RxCross2 } from "react-icons/rx";
 
                 <div className='flex  flex-col gap-2'> 
                 <button className='transition-all border-solid border-[1px] border-zinc-800 py-2 px-5 rounded hover:bg-blue-500/50 hover:text-white'>Add Property</button>
-                <button className='bg-blue-500 py-2 px-5 rounded text-white font-medium transition-all hover:opacity-[0.8]'>Sign in</button>
+                <button className='bg-blue-500 py-2 px-5 rounded text-white font-medium transition-all hover:opacity-[0.8]' onClick={HandleForm }>Sign in</button>
             </div>
             </div>
              </div>
@@ -37,7 +43,7 @@ import { RxCross2 } from "react-icons/rx";
 }
 
 ResponsiveMenu.propTypes ={
-  setVisivelMenu : P.func.isRequired
-
+  setVisivelMenu : P.func.isRequired,
+  setShowForm: P.func.isRequired
 }
 export {ResponsiveMenu}

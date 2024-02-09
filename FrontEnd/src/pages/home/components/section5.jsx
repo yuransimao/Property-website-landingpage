@@ -46,9 +46,9 @@ function Section5() {
   }
 
 
-  const PlanFilter = DataPlanNew.filter(item => item.plan == Plan) 
+  const PlanFilter = DataPlanNew.filter(item => item.plan === Plan) 
 
-  console.log(PlanFilter)
+  
 
   return (
     <React.Fragment>

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import P from 'prop-types'
 
 import { RxCross2 } from "react-icons/rx";
 function Mordalbox({children, onclick}) {
@@ -18,6 +18,10 @@ function Mordalbox({children, onclick}) {
   )
 }
 
-Mordalbox.propTypes = {}
+Mordalbox.propTypes = {
+
+  onclick : P.func,
+
+}
 
 export {Mordalbox}
