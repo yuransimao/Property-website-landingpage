@@ -3,6 +3,9 @@ import { Inputs, Button } from '../'
 import { FaUserAlt,FaEnvelope , FaLock} from "react-icons/fa";
 import {useForm} from 'react-hook-form'
 import {zodResolver} from "@hookform/resolvers/zod"
+import {motion} from "framer-motion"
+import {slideAnimation, headTextAnimation } from "../../config/motion"
+
 import z from 'zod';
 
 const schema = z.object({
@@ -47,14 +50,16 @@ function Form() {
 
   return (
     <React.Fragment>
-      <div className='bg-white rounded-sm overflow-hidden   w-11/12 lg:w-2/5 md:w-3/6 sm:w-[70%]'>
+      <div className='bg-white rounded-sm overflow-hidden w-11/12 lg:w-2/5 md:w-3/6 sm:w-[70%]'>
         <div className='flex items-center justify-between gap-1'>
-          <button className={`py-4 px-20 ${ChangeForms !== TextBtnSignin && 'bg-blue-500 text-white'} `} onClick={(e) =>haldleOnclick(e)}><h3>{TextBtnSignin}</h3></button>
-          <button className={`py-4 px-20 ${ChangeForms !== TextBtnSignup  && 'bg-blue-500 text-white'}`} onClick={(e) =>haldleOnclick(e)}><h2>{TextBtnSignup}</h2></button>
+          <button className={`py-4 px-7 lg:px-20 md:16 sm:px-8 ${ChangeForms !== TextBtnSignin && 'bg-blue-500 text-white'} `} onClick={(e) =>haldleOnclick(e)}><h3>{TextBtnSignin}</h3></button>
+          <button className={`py-4 px-7 lg:px-20 md:16 sm:px-8 ${ChangeForms !== TextBtnSignup  && 'bg-blue-500 text-white'}`} onClick={(e) =>haldleOnclick(e)}><h2>{TextBtnSignup}</h2></button>
         </div>
         <div>
           {ChangeForms === TextBtnSignup  ? (
-          <form onSubmit={handleSubmit(createUser)} className='px-7 py-9 '>
+
+            <motion.div {...headTextAnimation}>
+          <form onSubmit={handleSubmit(createUser)} className='px-3 lg:px-7 md:px-5 sm:px-3 py-9 '>
             
             <div className='py-2 mb-2'>
               <Inputs type='text'  labelName='Username' id='userName' icon={<FaUserAlt size={14} />} register={{...register('userName')}} />
@@ -88,8 +93,12 @@ function Form() {
               <a onClick={(e) => haldleOnclick(e)} className='cursor-pointer transition-all duration-700 hover:underline hover:text-red-800'>{TextBtnSignin}</a>
             </div>
             
-          </form>):(
-            <form action="" className='px-7 py-9 '>
+          </form>
+          </motion.div>
+          ):(
+
+            
+            <form action="" className='px-3 lg:px-7 md:px-5 sm:px-3 py-9'>
             
             <div className='py-2 mb-2'>
               <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} />
