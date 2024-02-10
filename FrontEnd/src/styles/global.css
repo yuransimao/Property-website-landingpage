@@ -19,6 +19,27 @@
 
     
   }
+  div .section-image2{
+    background: url('../assets/house2.jpg');
+    background-position: 100%;
+    background-size: cover;
+
+    
+  }
+  div .section-image3{
+    background: url('../assets/house3.jpg');
+    background-position: 100%;
+    background-size: cover;
+
+    
+  }
+  div .section-image4{
+    background: url('../assets/house4.jpg');
+    background-position: 100%;
+    background-size: cover;
+
+    
+  }
 
   div .Paradise {
     background: url('../assets/Paradise.jpg');
