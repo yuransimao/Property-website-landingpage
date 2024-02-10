@@ -1,6 +1,6 @@
 import React from 'react'
 import P from "prop-types"
-function Inputs({ type, name, id, labelName, icon, register }) {
+function Inputs({ type,  id, labelName, icon, register }) {
   return (
 
     <React.Fragment>
@@ -12,7 +12,7 @@ function Inputs({ type, name, id, labelName, icon, register }) {
           <h3 className='group-focus-within:text-blue-800'>{labelName}</h3>
         </label>
 
-        <input type={type} name={name} id={id} className="border-blue-400 border-solid border-b-2 pt-2 bg-transparent focus:border-blue-700" autoComplete='on' {...register}/>
+        <input type={type}  id={id} className="border-blue-400 border-solid border-b-2 pt-2 bg-transparent focus:border-blue-700" autoComplete='on' {...register}/>
       </div>
     </React.Fragment>
   )
@@ -20,7 +20,6 @@ function Inputs({ type, name, id, labelName, icon, register }) {
 
 Inputs.propTypes = {
   type: P.string.isRequired,
-  name: P.string.isRequired,
   id: P.string.isRequired,
   labelName: P.string.isRequired
 }
