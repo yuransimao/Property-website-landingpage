@@ -4,15 +4,15 @@ function Inputs({ type,  id, labelName, icon, register }) {
   return (
 
     <React.Fragment>
-      <div className="flex flex-col relative group py-2 mb-9">
-        <label htmlFor={id} className={`absolute top-0 transition-all duration-300 group-focus-within:top-[-1.3rem] group-valid-within:top-[-1.5rem]   flex gap-2 items-center justify-center`}>
+      <div className="flex  group bg-slate-800/10   rounded-sm overflow-hiddend">
+        <label htmlFor={id} className={` text-white transition-all duration-300 w-[8%] flex justify-center items-center rounded-sm bg-blue-400 group-focus-within:bg-blue-500 `}>
 
-          <span className={`bg-zinc-900/10 p-2 rounded-full group-focus-within:bg-blue-900 font-bold group-focus-within:text-white`}>{icon}
+          <span className={``}>{icon}
           </span>
-          <h3 className='group-focus-within:text-blue-800'>{labelName}</h3>
+          
         </label>
 
-        <input type={type}  id={id} className="border-blue-400 border-solid border-b-2 pt-2 bg-transparent focus:border-blue-700" autoComplete='on' {...register}/>
+        <input type={type}  id={id} className=" p-3 placeholder:text-black placeholder:text-sm focus:border-blue-700 bg-transparent w-11/12" autoComplete='on' placeholder={labelName} {...register}/>
       </div>
     </React.Fragment>
   )
