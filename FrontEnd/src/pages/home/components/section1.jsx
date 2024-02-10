@@ -1,30 +1,18 @@
 import React from 'react'
 import { CiLocationOn } from "react-icons/ci";
-import {Button} from "../../../components"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation,Autoplay, Pagination} from 'swiper/modules';
+import {Button, Slider} from "../../../components"
+
 function Section1 ()  {
    
   return (
     <React.Fragment>
         <div className={`w-full relative h-dvh flex  flex-col items-center  justify-center    gap-9`}>
-        <Swiper navigation={false}  className="h-full w-full" 
-        pagination={false}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay,Pagination,Navigation]}
-        >
-        <SwiperSlide className='section-image'></SwiperSlide>
-        <SwiperSlide className='section-image2'></SwiperSlide>
-        <SwiperSlide className='section-image3'></SwiperSlide>
-        <SwiperSlide className='section-image4'></SwiperSlide>
         
-      </Swiper>
-            
+            <Slider custom1='section-image' 
+            custom2='section-image2'
+            custom3='section-image3'
+            custom4='section-image4'
+            />
             <div className='w-full absolute z-10 h-dvh flex  flex-col items-center pt-9 justify-center'>
 
               <div className='mb-2' >
