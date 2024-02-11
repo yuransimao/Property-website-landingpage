@@ -1,22 +1,18 @@
 import  { useState } from 'react'
-import { UseSchema } from './useSchema';
+import { UseSchema } from './';
 
 
 function UseChangeForm() {
 
-    const { reset } = UseSchema()
+    const {HaldleOnclick} = UseSchema()
 
     const TextBtnSignin = 'Sign in';
     const TextBtnSignup = 'Sign up';
     const [ChangeForms, setChangeForms] = useState(TextBtnSignin);
 
-    const haldleOnclick = (e) => {
-        const buttonText = e.target.textContent;
-        setChangeForms(buttonText)
-        reset()
-    }
+   
 
-    return {TextBtnSignin, TextBtnSignup,ChangeForms, haldleOnclick}
+    return {TextBtnSignin, TextBtnSignup,ChangeForms}
 }
 
 export { UseChangeForm }
