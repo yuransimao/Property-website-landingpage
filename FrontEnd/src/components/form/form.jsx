@@ -10,12 +10,7 @@ import { UseSchema, UseChangeForm } from '../../hooks';
 function Form() {
   const {register, handleSubmit, errors, createUser} =UseSchema()
   const {TextBtnSignin, TextBtnSignup,ChangeForms, haldleOnclick} = UseChangeForm()
-  
-    
-
-  
-
-    
+      
 
   return (
     <React.Fragment>

@@ -12,7 +12,7 @@ function UseChangeForm() {
 
     const haldleOnclick = (e) => {
         const buttonText = e.target.textContent;
-        setChangeForms(buttonText)
+        setChangeForms(buttonText);
         reset()
     }
 

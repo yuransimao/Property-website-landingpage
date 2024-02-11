@@ -1,31 +1,15 @@
 import React from 'react'
 import P from "prop-types"
 import { IoIosMenu } from "react-icons/io";
-import { useState, useEffect } from 'react';
+
 import { NavLink } from 'react-router-dom'
 import { Button } from '../button/button';
+import { UseheaderBackgroundActive } from '../../hooks';
 
-
-function Header({ setVisivelMenu, setShowForm}) {
+function Header({ setVisivelMenu,HandleSign }) {
 
     
-    const [BackgroundActive, setBackgroundActive] = useState(false)
-    const HandleSign = () => {
-        setShowForm(true)
-        setVisivelMenu(false)
-    }
-    useEffect(() => {
-        window.addEventListener("resize", function(){
-            this.innerWidth > 1022 && setVisivelMenu(false);
-            
-        })
-
-        window.addEventListener("scroll", function(){
-            this.scrollY > 652 ? setBackgroundActive(true) : setBackgroundActive(false)
-        })
-    },[setVisivelMenu])
-
-
+    const {BackgroundActive} =UseheaderBackgroundActive()
 
   return (
     <React.Fragment>
@@ -66,7 +50,8 @@ function Header({ setVisivelMenu, setShowForm}) {
 }
 
 Header.propTypes ={
-    setVisivelMenu: P.func
+    setVisivelMenu: P.func,
+    HandleSign : P.func
 }
 
 export {Header}
