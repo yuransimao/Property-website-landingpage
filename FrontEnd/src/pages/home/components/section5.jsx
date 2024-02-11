@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import {motion} from "framer-motion"
+import {headTextAnimation } from "../../../config/motion"
 import { Cardplan } from '../../../components';
   
 function Section5() {
@@ -69,16 +70,18 @@ function Section5() {
           <button className={` ${Plan == "Monthly" ? 'bg-blue-900 text-white' : 'bg-transparent text-black'}  font-bold py-2 px-6 rounded-md`} onClick={(e) => HandleFilterPlan(e)}><h2>Monthly</h2>
           </button>
         </div>
-
+          
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 py-6'>
 
             {PlanFilter?.map((item, index) => (
-              <Cardplan key={index} {...item} index={index}/>
+              <motion.div {...headTextAnimation} key={index} >
+              <Cardplan {...item} index={index}/>
+              </motion.div>
             ))}
           
 
         </div>
-
+        
       </div>
 
     </React.Fragment>
