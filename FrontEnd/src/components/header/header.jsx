@@ -1,16 +1,21 @@
 import React from 'react'
 import P from "prop-types"
 import { IoIosMenu } from "react-icons/io";
-
+import { useContext } from 'react';
+import { UserProviderContext} from '../../Context/context'
 import { NavLink } from 'react-router-dom'
 import { Button } from '../button/button';
 import { UseheaderBackgroundActive } from '../../hooks';
 
 function Header({ setVisivelMenu,HandleSign }) {
 
-    
+    const [state, Dispach] = useContext( UserProviderContext)
     const {BackgroundActive} =UseheaderBackgroundActive()
+    const UserDesative = () =>{
+         
 
+         console.log('ok')
+    }
   return (
     <React.Fragment>
         <div className={`w-full fixed left-0 right-0 z-50  lg:px-0  px-7 py-4 ${BackgroundActive? 'bg-white shadow-lg' : 'bg-transparent'}`}>
@@ -31,7 +36,7 @@ function Header({ setVisivelMenu,HandleSign }) {
             </div>
 
             <div className='hidden lg:flex gap-x-10'> 
-                <button className='text-white'><h2>Add Property</h2></button>
+                <button className='text-white' onClick={state.userName == null && HandleSign}><h2>Add Property</h2></button>
                 <Button text = "Sign in" onclick={HandleSign}/>
             </div>
         
