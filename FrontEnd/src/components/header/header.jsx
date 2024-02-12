@@ -36,8 +36,9 @@ function Header({ setVisivelMenu,HandleSign }) {
             </div>
 
             <div className='hidden lg:flex gap-x-10'> 
-                <button className='text-white' onClick={state.userName == null && HandleSign}><h2>Add Property</h2></button>
-                <Button text = "Sign in" onclick={HandleSign}/>
+                <button className='text-white' onClick={state.userId == null ? HandleSign : undefined}><h2>Add Property</h2></button>
+               
+                {state.userId == null &&  <Button text = "Sign in" onclick={HandleSign}/>}
             </div>
         
             <div className='flex lg:hidden'>
