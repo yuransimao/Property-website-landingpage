@@ -2,9 +2,10 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import z from 'zod';
 import { useState } from 'react';
-import { supabase } from '../service/service';
-import { useContext } from 'react';
-import { UserProviderContext } from '../Context/context';
+import {auth} from '../service/service'
+import {createUserWithEmailAndPassword } from "firebase/auth";
+
+
 const schema = z.object({
 
   userName: z.string().nonempty('O nome de usuario  é obrigatório').min(2, 'O Nome de usuario deve conter mais de 2 caracteres no mínimo')
@@ -33,8 +34,8 @@ const TextBtnSignup = 'Sign up';
 
 function UseSchema() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
+ 
 
-  const [state,Dispach] =useContext(UserProviderContext)
 
 
   const [ChangeForms, setChangeForms] = useState(TextBtnSignin);
@@ -44,31 +45,39 @@ function UseSchema() {
     setChangeForms(buttonText);
     reset()
   }
+  
 
 
 
-  const createUser = async (datas) => {
+  const createUser = async(datas) => {
 
+
+    const { userEmail, userName, userPassword } = datas
+   try{
+     const userCredential = await createUserWithEmailAndPassword(auth,userEmail, userPassword,userName) 
+        const user = userCredential.user
+        console.log(user)
+      }
+      catch (error){
+        console.log(error)
+      }
     
-    const {userEmail,userName, userPassword} = datas
-    const response = await supabase.auth.signUp({
-      email: userEmail,
-      password: userPassword,
-    })
-
-    Dispach({type:'User_active', payload:{userEmail: response.data.user.email,userId: response.data.user.id}})
-    console.log(response.data);
 
   }
 
 
-  const Login = () =>{
-
-  }
+ 
 
 
   return {
-    register, handleSubmit, errors, createUser, handleChangeForms, TextBtnSignin, TextBtnSignup, ChangeForms
+    register, 
+    handleSubmit, 
+    errors, 
+    createUser, 
+    handleChangeForms, 
+    TextBtnSignin, 
+    TextBtnSignup, 
+    ChangeForms
 
   }
 }
