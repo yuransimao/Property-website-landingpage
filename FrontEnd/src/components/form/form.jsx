@@ -73,10 +73,12 @@ function Form() {
             <div className='py-2 mb-2'>
               <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} 
               register={{...registerLogin('email')}}/>
+              {errorsLogin?.email &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errorsLogin?.email.message}</span>}
             </div>
 
             <div className='py-2 mb-2'>
               <Inputs type='password'  labelName='Password' id='password' icon={<FaLock size={14} />} register={{...registerLogin('password')}} />
+              {errorsLogin?.password &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errorsLogin?.password.message}</span>}
             </div>
             
               

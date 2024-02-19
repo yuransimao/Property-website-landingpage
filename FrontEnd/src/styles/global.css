@@ -74,3 +74,13 @@ div .Paradise:hover {
    
     filter: saturate(80%);
   }
+
+  @layer utilities {
+
+    .clip-circle {
+ 
+        clip-path: circle();
+ 
+    }
+ 
+ }

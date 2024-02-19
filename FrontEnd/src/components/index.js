@@ -9,3 +9,4 @@ export * from "./inputs/inputs"
 export * from "./layout/layout"
 export * from "./slider/slider"
 export * from './isLoggedIn/isloggedin'
+export * from './menuUser/menuUser'
