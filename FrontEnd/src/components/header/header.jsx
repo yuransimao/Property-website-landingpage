@@ -1,21 +1,40 @@
 import React from 'react'
 import P from "prop-types"
 import { IoIosMenu } from "react-icons/io";
-import { useContext } from 'react';
-import { UserProviderContext} from '../../Context/context'
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { Button } from '../button/button';
-import { UseheaderBackgroundActive } from '../../hooks';
-
+import { UseheaderBackgroundActive,UseSignOut} from '../../hooks';
+import { useEffect } from 'react';
+import { auth } from '../../service/service';
+import { onAuthStateChanged } from 'firebase/auth';
+import { User_Active, User_Desatived, selectIsPhotouser, selectUserEmail} from '../../Redux/slice/authslice';
+import { ShowLogin, ShowLogout } from '../isLoggedIn/isloggedin';
+import { FaRegUserCircle } from "react-icons/fa";
 function Header({ setVisivelMenu,HandleSign }) {
-
-    const [state, Dispach] = useContext( UserProviderContext)
+    const dispach = useDispatch()
     const {BackgroundActive} =UseheaderBackgroundActive()
-    const UserDesative = () =>{
-         
+    const {SignOut} =UseSignOut()
+    
 
-         console.log('ok')
-    }
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            console.log(typeof user.photoURL, typeof selectIsPhotouser )
+            dispach(User_Active({
+                userEmail: user.email,
+                userId: user.id,
+                userPhpto:user.photoURL
+
+                
+            }))
+        }else {
+            dispach(User_Desatived())
+        }
+    })
+  },[dispach])
+        
+    
   return (
     <React.Fragment>
         <div className={`w-full fixed left-0 right-0 z-50  lg:px-0  px-7 py-4 ${BackgroundActive? 'bg-white shadow-lg' : 'bg-transparent'}`}>
@@ -34,11 +53,19 @@ function Header({ setVisivelMenu,HandleSign }) {
             </ul>
                 </nav>
             </div>
-
+           <ShowLogout>
             <div className='hidden lg:flex gap-x-10'> 
-                <button className='text-white' onClick={state.userName == null && HandleSign}><h2>Add Property</h2></button>
-                <Button text = "Sign in" onclick={HandleSign}/>
+                <button className='text-white' onClick={ HandleSign}><h2>Add Property</h2></button>
+               
+                 <Button text = "Sign in" onclick={HandleSign}/>
             </div>
+            </ShowLogout>
+
+            <ShowLogin>
+            <Button text = "Log out" onclick={SignOut}/>
+
+            <button> {selectIsPhotouser === null ?<FaRegUserCircle/> : <img src={selectIsPhotouser}/> }</button>
+            </ShowLogin>
         
             <div className='flex lg:hidden'>
             <button onClick={() => setVisivelMenu(true)} className={BackgroundActive ? 'text-black' :'text-white'}><IoIosMenu size={20}/></button>

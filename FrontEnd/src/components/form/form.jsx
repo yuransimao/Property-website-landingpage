@@ -3,12 +3,18 @@ import { Inputs, Button } from '../'
 import { FaUserAlt,FaEnvelope , FaLock} from "react-icons/fa";
 import {motion} from "framer-motion"
 import { headTextAnimation } from "../../config/motion"
-import { UseSchema} from '../../hooks';
+import { UseSchema, UseSchemaLoggin} from '../../hooks';
 
 
 
 function Form() {
   const {register, handleSubmit, errors, createUser, TextBtnSignin, TextBtnSignup,ChangeForms, handleChangeForms} =UseSchema()
+  const {
+    register: registerLogin,
+    handleSubmit: handleSubmitLogin,
+    errors: errorsLogin,
+    Login
+  } = UseSchemaLoggin();
   
  
 
@@ -62,14 +68,15 @@ function Form() {
           ):(
 
             
-            <form action="" className='px-3 lg:px-7 md:px-5 sm:px-3 py-9'>
+            <form onSubmit={handleSubmitLogin(Login)} className='px-3 lg:px-7 md:px-5 sm:px-3 py-9'>
             
             <div className='py-2 mb-2'>
-              <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} />
+              <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} 
+              register={{...registerLogin('email')}}/>
             </div>
 
             <div className='py-2 mb-2'>
-              <Inputs type='password'  labelName='Password' id='password' icon={<FaLock size={14} />} />
+              <Inputs type='password'  labelName='Password' id='password' icon={<FaLock size={14} />} register={{...registerLogin('password')}} />
             </div>
             
               
