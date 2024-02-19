@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import z from 'zod';
 import { useState } from 'react';
 import {auth} from '../service/service'
-import {createUserWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 
 const schema = z.object({
@@ -54,9 +54,15 @@ function UseSchema() {
 
     const { userEmail, userName, userPassword } = datas
    try{
-     const userCredential = await createUserWithEmailAndPassword(auth,userEmail, userPassword,userName) 
-        const user = userCredential.user
-        console.log(user)
+     const userCredential = await createUserWithEmailAndPassword(auth,userEmail, userPassword);
+     const user = userCredential.user
+        if(user){
+          updateProfile(auth.currentUser, {
+         
+            displayName: userName
+          });
+        }
+         
       }
       catch (error){
         console.log(error)

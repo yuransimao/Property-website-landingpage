@@ -1,31 +1,31 @@
 import React from 'react'
 import P from "prop-types"
-import { IoIosMenu } from "react-icons/io";
+import { IoIosMenu,IoMdArrowDropdown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { Button } from '../button/button';
-import { UseheaderBackgroundActive,UseSignOut} from '../../hooks';
+import { UseheaderBackgroundActive,} from '../../hooks';
 import { useEffect } from 'react';
 import { auth } from '../../service/service';
 import { onAuthStateChanged } from 'firebase/auth';
-import { User_Active, User_Desatived, selectIsPhotouser, selectUserEmail} from '../../Redux/slice/authslice';
+import { User_Active, User_Desatived, selectIsPhotouser} from '../../Redux/slice/authslice';
 import { ShowLogin, ShowLogout } from '../isLoggedIn/isloggedin';
 import { FaRegUserCircle } from "react-icons/fa";
-function Header({ setVisivelMenu,HandleSign }) {
+function Header({ setVisivelMenu,HandleSign, setShowMenuUser }) {
     const dispach = useDispatch()
     const {BackgroundActive} =UseheaderBackgroundActive()
-    const {SignOut} =UseSignOut()
+    const userPhoto = useSelector(selectIsPhotouser)
     
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
         if(user){
-            console.log(typeof user.photoURL, typeof selectIsPhotouser )
+            console.log(user.displayName)
             dispach(User_Active({
                 userEmail: user.email,
-                userId: user.id,
-                userPhpto:user.photoURL
-
+                userId: user.uid,
+                userPhpto:user.photoURL,
+                userName:user.displayName
                 
             }))
         }else {
@@ -62,9 +62,17 @@ function Header({ setVisivelMenu,HandleSign }) {
             </ShowLogout>
 
             <ShowLogin>
-            <Button text = "Log out" onclick={SignOut}/>
+            
 
-            <button> {selectIsPhotouser === null ?<FaRegUserCircle/> : <img src={selectIsPhotouser}/> }</button>
+            <button className='flex gap- items-center justify-center ' onClick={ () => setShowMenuUser(state => !state)}> 
+                { userPhoto === null ?
+                <div className='p-1 rounded-full bg-white text-blue-600'>
+                    <FaRegUserCircle size={18}/>
+                </div> : 
+                <img src={userPhoto}/> 
+            } <span className='text-blue-500'> <IoMdArrowDropdown size={20} /></span>
+            
+            </button>
             </ShowLogin>
         
             <div className='flex lg:hidden'>

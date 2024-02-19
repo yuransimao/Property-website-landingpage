@@ -6,13 +6,17 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 
 
+const Scheme = z.object({
+  email: z.string().nonempty('Verifica seu email').email(),
+  password: z.string().nonempty('Verifica sua password').min(6, 'a password de conter no minimo 6 caracterter')
+})
 
 
 
 
 
 function UseSchemaLoggin() {
-  const { register, handleSubmit,  formState: { errors } } = useForm();
+  const { register, handleSubmit,  formState: { errors } } = useForm({resolver :zodResolver(Scheme)});
  
 
 

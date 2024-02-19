@@ -1,15 +1,31 @@
 import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth'
-const firebaseConfig = {
-    apiKey: import.meta.env.VITE_APIKEY,
-    authDomain: import.meta.env.VITE_AUTHDOMAIN,
-    projectId:import.meta.env.VITE_PROJECTID,
-    storageBucket:import.meta.env.VITE_STORAGEBUCKET ,
-    messagingSenderId:import.meta.env.VITE_MESSAGINSENDERID ,
-    appId: import.meta.env.VITE_MESSAGINSENDERID
-  };
+import { getAuth } from 'firebase/auth'
 
+const DataFirebase = async() => {
+  const resp = await fetch('http://localhost:3000/apiFirebaseClient');
+  const data = await resp.json();
   
+  return data;
+}
 
-  export const firebase = initializeApp(firebaseConfig);
-  export const auth = getAuth(firebase)
+const FirebaseConfig = async () => {
+  const data = await DataFirebase();
+
+  return {
+    apiKey: data.apiKey,
+    authDomain: data.authDomain,
+    projectId: data.projectId,
+    storageBucket: data.storageBucket,
+    messagingSenderId: data.messagingSenderId,
+    appId: data.appId
+  };
+}
+
+const initFirebase = async () => {
+  const config = await FirebaseConfig();
+  const firebase = initializeApp(config);
+  return firebase;
+}
+
+export const firebase = await initFirebase();
+export const auth = getAuth(firebase);
