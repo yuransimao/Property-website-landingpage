@@ -27,7 +27,7 @@ function MenuUser({setShowMenuUser}){
                 <div >
                     <h3 className='text-sm'>{userName}</h3>
                     <h4 className='text-sm text-zinc-400 leading-8'>{userEmail}</h4>
-                   <Link>
+                   <Link to='/profile/me' onClick={() => setShowMenuUser(state => !state) }>
                    <Button text='Edit profile'/>
                    </Link>
                 </div>

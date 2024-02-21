@@ -3,7 +3,7 @@ import { Header,Mordalbox,MenuUser,Form } from '../'
 import { ResponsiveMenu } from '../header/responsive'
 import { UseVisivelMenu,UseMordalBox } from '../../hooks';
 import { useState, useEffect } from 'react';
-function Layout({children}) {
+function Layout() {
 
     const {VisivelMenu, setVisivelMenu} = UseVisivelMenu();
     const {showForm, setShowForm, HandleSign} = UseMordalBox()
@@ -24,7 +24,7 @@ function Layout({children}) {
         </Mordalbox> }
       {showMenuUser &&  <MenuUser setShowMenuUser={setShowMenuUser}/>}
 
-        {children}
+        
       
     </React.Fragment>
   )

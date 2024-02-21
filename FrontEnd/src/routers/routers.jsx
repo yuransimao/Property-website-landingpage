@@ -4,9 +4,9 @@ import { Layout, Footer } from "../components";
 const Router = () =>{
     return(
         <BrowserRouter>
-        
+        <Layout/>
         <Routes>
-            <Route index path="/" element={<Layout><Home/></Layout>}/>
+            <Route index path="/" element={<Home/>}/>
             <Route path="/profile/me"  element={<Profile/>}/>
         </Routes>
         <Footer/>

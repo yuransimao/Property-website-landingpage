@@ -1,14 +1,15 @@
 import React from 'react'
-import { Inputs, Button } from '../'
+import { Inputs , Button } from '../'
 import { FaUserAlt,FaEnvelope , FaLock} from "react-icons/fa";
 import {motion} from "framer-motion"
 import { headTextAnimation } from "../../config/motion"
-import { UseSchema, UseSchemaLoggin} from '../../hooks';
+import { UseSchema, UseSchemaLoggin, UseMordalBox} from '../../hooks';
 
 
 
 function Form() {
   const {register, handleSubmit, errors, createUser, TextBtnSignin, TextBtnSignup,ChangeForms, handleChangeForms} =UseSchema()
+  const {setShowForm} =UseMordalBox()
   const {
     register: registerLogin,
     handleSubmit: handleSubmitLogin,
@@ -32,30 +33,30 @@ function Form() {
           <form onSubmit={handleSubmit(createUser)} className='px-3 lg:px-7 md:px-5 sm:px-3 py-9 '>
             
             <div className='py-2 mb-2'>
-              <Inputs type='text'  labelName='Username' id='userName' icon={<FaUserAlt size={14} />} register={{...register('userName')}} />
+              <Inputs  type='text'  labelName='Username' id='userName' icon={<FaUserAlt size={14} />} register={{...register('userName')}} RedOnly={false} />
              {errors.userName &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errors.userName.message}</span>}
             </div>
 
             <div className='py-2 mb-2'>
-              <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} register={{...register('userEmail')}}/>
+              <Inputs  type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} register={{...register('userEmail')}} RedOnly={false} />
               {errors.userEmail &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errors.userEmail.message}</span>}
             </div>
 
             <div className='py-2 mb-2'>
-              <Inputs type='password'  labelName='Password' id='password' icon={<FaLock size={14} />}   register={{...register('userPassword')}}/>
+              <Inputs  type='password'  labelName='Password' id='password' icon={<FaLock size={14} />}   register={{...register('userPassword')}} RedOnly={false}/>
 
               {errors.userPassword &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errors.userPassword.message}</span>}
             </div>
 
             <div className='py-2 mb-2'>
-              <Inputs type='password'  labelName='Confirma Password' id='userconfPassword' icon={<FaLock size={14}/>} register={{...register('userconfPassword')}}  />
+              <Inputs  type='password'  labelName='Confirma Password' id='userconfPassword' icon={<FaLock size={14}/>} register={{...register('userconfPassword')}} RedOnly={false} />
 
               {errors.userconfPassword &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{
               errors.userconfPassword.message}</span>}
             </div>
 
             <div className='flex justify-end py-2 mb-5'>  
-            <Button text={TextBtnSignup } type='submit'/>
+            <Button text={TextBtnSignup } type='submit' onclick={ () => setShowForm(false)}/>
             </div>
 
             <div className='flex flex-col gap-2 items-center justify-center'>
@@ -71,20 +72,20 @@ function Form() {
             <form onSubmit={handleSubmitLogin(Login)} className='px-3 lg:px-7 md:px-5 sm:px-3 py-9'>
             
             <div className='py-2 mb-2'>
-              <Inputs type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} 
-              register={{...registerLogin('email')}}/>
+              <Inputs  type='email'  labelName='Email' id='Email' icon={<FaEnvelope size={14} />} 
+              register={{...registerLogin('email')}} RedOnly={false} />
               {errorsLogin?.email &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errorsLogin?.email.message}</span>}
             </div>
 
             <div className='py-2 mb-2'>
-              <Inputs type='password'  labelName='Password' id='password' icon={<FaLock size={14} />} register={{...registerLogin('password')}} />
+              <Inputs  type='password'  labelName='Password' id='password' icon={<FaLock size={14} />} register={{...registerLogin('password')}} RedOnly={false} />
               {errorsLogin?.password &&  <span className='text-sm text-red-600 transition-all duration-500 px-1 pt-3'>{errorsLogin?.password.message}</span>}
             </div>
             
               
             <div className='flex justify-between py-2 mb-4'>
             <a className='text-sm cursor-pointer transition-all duration-500 hover:underline' > Forgot password ?</a>
-            <Button text={TextBtnSignin} type='submit'/>
+            <Button text={TextBtnSignin} type='submit'  onclick={ () => setShowForm(false)}/>
             </div>
             <div className='flex flex-col gap-2 items-center justify-center'>
               <h3 className='text-blue-600'>Don't have an account ?</h3>

@@ -38,4 +38,5 @@ export const selectIsloggedIn = (state) => state.Auth.isLoggedIn
 export const selectIsPhotouser = (state) => state.Auth.userPhoto
 export const selectUserEmail = (state) => state.Auth.userEmail
 export const selectUserName = (state) => state.Auth.userName
+export const selectUserId = (state) => state.Auth.id
 export default AuthSlice.reducer
