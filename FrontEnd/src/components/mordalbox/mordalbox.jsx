@@ -7,7 +7,7 @@ import {motion} from "framer-motion"
 function Mordalbox({children, onclick}) {
   return (
     <React.Fragment>
-        <div className='fixed  h-dvh w-dvw z-[60]' >
+        <div className='fixed  h-dvh w-dvw z-[60] top-0 left-0 right-0' >
       <motion.div {...slideAnimation('down')} className=' bg-zinc-700/90 w-full h-full flex items-center justify-center'>
         <div className='absolute right-4 lg:right-20 md:right-10 sm:right-5 top-8 p-3 z-[60]'> 
              <button  onClick={ () => onclick(false)} className={`pointer p-2 bg-blue-400 rounded-full transition-all hover:bg-blue-600 text-white `}>

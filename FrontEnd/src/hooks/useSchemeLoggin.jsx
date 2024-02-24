@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import z from 'zod';
 import { auth } from '../service/service';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-
+import { UseMordalBox } from './';
 
 
 const Scheme = z.object({
@@ -30,11 +30,12 @@ function UseSchemaLoggin() {
 
     try{
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
-      const user = userCredential.user
-      console.log(user)
+      const user = userCredential.user;
+     
     } catch(error) {
       console.log(error)
     }
+    
     
   }
 

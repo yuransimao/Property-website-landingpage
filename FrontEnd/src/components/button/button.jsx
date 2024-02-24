@@ -19,5 +19,10 @@ return (
 )
 }
 
+Button.propTypes ={
+  text: P.string.isRequired,
+  onclick: P.func,
+  type: P.string
+}
 
 export {Button}

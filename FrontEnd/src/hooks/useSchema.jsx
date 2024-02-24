@@ -4,6 +4,7 @@ import z from 'zod';
 import { useState } from 'react';
 import {auth} from '../service/service'
 import {createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { UseMordalBox } from './';
 
 
 const schema = z.object({
@@ -35,7 +36,7 @@ const TextBtnSignup = 'Sign up';
 function UseSchema() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
  
-
+  const {setShowForm} = UseMordalBox()
 
 
   const [ChangeForms, setChangeForms] = useState(TextBtnSignin);
@@ -62,11 +63,13 @@ function UseSchema() {
             displayName: userName
           });
         }
-         
+        setShowForm(false)  
       }
       catch (error){
         console.log(error)
       }
+
+      
     
 
   }

@@ -3,16 +3,11 @@ import { Header,Mordalbox,MenuUser,Form } from '../'
 import { ResponsiveMenu } from '../header/responsive'
 import { UseVisivelMenu,UseMordalBox } from '../../hooks';
 import { useState, useEffect } from 'react';
-function Layout({children}) {
+function Layout() {
 
     const {VisivelMenu, setVisivelMenu} = UseVisivelMenu();
     const {showForm, setShowForm, HandleSign} = UseMordalBox()
     const [showMenuUser, setShowMenuUser] = useState(false)
-    useEffect (() => {
-       window.addEventListener('scroll', function (){
-        this.screenY !== 0 && setShowMenuUser(false)
-       })
-    }, [])
     
     
   return (
@@ -24,7 +19,7 @@ function Layout({children}) {
         </Mordalbox> }
       {showMenuUser &&  <MenuUser setShowMenuUser={setShowMenuUser}/>}
 
-        {children}
+        
       
     </React.Fragment>
   )

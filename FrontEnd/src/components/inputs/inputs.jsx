@@ -1,6 +1,6 @@
 import React from 'react'
 import P from "prop-types"
-function Inputs({ type,  id, labelName, icon, register }) {
+function Inputs({ type,  id, labelName, icon, register, RedOnly, defaultValue }) {
   return (
 
     <React.Fragment>
@@ -12,7 +12,7 @@ function Inputs({ type,  id, labelName, icon, register }) {
           
         </label>
 
-        <input type={type}  id={id} className=" p-3 placeholder:text-black placeholder:text-sm focus:border-blue-700 bg-transparent w-11/12" autoComplete='on' placeholder={labelName} {...register}/>
+        <input type={type}  id={id} className=" p-3 placeholder:text-black placeholder:text-sm focus:border-blue-700 bg-transparent w-11/12" autoComplete='on' placeholder={labelName} {...register} readOnly={RedOnly} defaultValue={defaultValue}/>
       </div>
     </React.Fragment>
   )

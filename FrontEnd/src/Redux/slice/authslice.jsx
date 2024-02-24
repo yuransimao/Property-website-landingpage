@@ -15,7 +15,7 @@ const AuthSlice = createSlice({
     reducers:{
         User_Active : (state, action) =>{
             state.isLoggedIn = true,
-            state.userPhoto= state.userPhoto
+            state.userPhoto= action.payload.userPhoto
             state.userEmail = action.payload.userEmail,
             state.userName = action.payload.userName
             state.userId = action.payload.userId
@@ -38,4 +38,5 @@ export const selectIsloggedIn = (state) => state.Auth.isLoggedIn
 export const selectIsPhotouser = (state) => state.Auth.userPhoto
 export const selectUserEmail = (state) => state.Auth.userEmail
 export const selectUserName = (state) => state.Auth.userName
+export const selectUserId = (state) => state.Auth.id
 export default AuthSlice.reducer
