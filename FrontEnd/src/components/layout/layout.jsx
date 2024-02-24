@@ -8,11 +8,6 @@ function Layout() {
     const {VisivelMenu, setVisivelMenu} = UseVisivelMenu();
     const {showForm, setShowForm, HandleSign} = UseMordalBox()
     const [showMenuUser, setShowMenuUser] = useState(false)
-    useEffect (() => {
-       window.addEventListener('scroll', function (){
-        this.screenY !== 0 && setShowMenuUser(false)
-       })
-    }, [])
     
     
   return (

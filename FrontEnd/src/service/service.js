@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
+import {getStorage} from 'firebase/storage'
 
 const DataFirebase = async() => {
   const resp = await fetch('http://localhost:3000/apiFirebaseClient');
@@ -29,3 +30,4 @@ const initFirebase = async () => {
 
 export const firebase = await initFirebase();
 export const auth = getAuth(firebase);
+export const Storage = getStorage(firebase);
